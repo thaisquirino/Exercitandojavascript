@@ -42,16 +42,17 @@ function faltaVisitar(paisesVisitados) {
   return `Falta visitar ${totalPaises - paisesVisitados} países`;
 }
 
-var profissão = 'Analista de Sistemas';
+var profissao = 'Analista de Sistemas';
 
 function dados() {
   var nome = 'Thaís Quirino';
-  var idade = 28;
+  var idade = 29;
   function outrosDados() {
     var endereco = 'Rio de janeiro';
-    var idade = 29;
+    var idade = 28;
     return `${nome}, ${idade}, ${endereco}, ${profissao}`;
   }
   return outrosDados();
 }
+
 console.log(dados());
