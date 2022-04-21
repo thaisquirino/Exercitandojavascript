@@ -1,58 +1,60 @@
-function areaQuadrado(lado) {
-  return lado * lado;
-}
-console.log(areaQuadrado(8));
+// Crie uma função para verificar se um valor  é Trutry  para que um valor seja  Truthy é um valor que sae traduz em verdadeiro
+//quando avaliado em um cocntexto Booleano. Todos os valores são truthy  a menos que eles sejam definidos como falsy (ou seja, xetop
+//para false , o "" , null ,undefined, e NaN)
 
-function pi() {
-  return 3.14;
+function isTruthy(dado) {
+  return !!dado;
 }
-var total = 5 * pi();
-console.log(total);
+// Crie uma função matemática que retorne o perimetro de um quadrado
+// lembrando :perimetro é a soma dos quadro lados do quadrado
+function perimetroQuadrado(lado) {
+  return lado * 4;
+}
+// Crie uma função q ue retorne seu nome completo 
+// ela deve possuir os parêametros: nome e sobrenome
 
-function imc(peso, altura, sexo) {
-  var imc = peso / (altura * altura);
-  return imc;
+function nomeCompleto(nome, sobrenome) {
+  return nome + '' + sobrenome;
+  //return `${nome} ${sobrenome}`; pode ser assim tb
 }
-console.log(imc(95, 1.8));
 
-function corFavorita(cor) {
-  if (cor === 'azul') {
-    return 'Você gosta do céu';
-  } else if (cor === 'verde') {
-    return 'Você gosta de mato';
-  } else {
-    return 'Você não gosta de nada';
-  }
-}
-function terceiraIdade(idade) {
-  if (typeof idade !== 'number') {
-    return 'Por favor preencha um número'
-  } if (idade >= 60) {
+// Crie uma função s e verifica se um número é par
+function isEven(numero) {
+  var modulo = numero % 2;
+  if (modulo === 0) {
     return true;
   } else {
     return false;
   }
 }
-console.log(terceiraIdade(60))
+// Crie uma função que retorna o tipo de 
+// dado do argumento passado nela (typeof)
+function tipoDeDado(dado) {
+  return typeof dado;
+}
 
+// addEventListener é uma função nativa do  JavaScript
+// o primeiro parâmetro é o evento que ocorre e o segundo o Callback
+// utilize essa função para mostrar no console o seu nome completo
+// quando o evento 'click' ocorrer.
+addEventListener('click', function () {
+  console.log('Thaís Quirino')
+});
+
+
+
+
+
+// Corrija o  erro abaixo
 var totalPaises = 193;
+function precisoVisitar(paisesVisitados) {
 
-function faltaVisitar(paisesVisitados) {
-
-  return `Falta visitar ${totalPaises - paisesVisitados} países`;
+  return 'Ainda faltam ${totalPaises - paisesVisitados} paises para visitar';
 }
-
-var profissao = 'Analista de Sistemas';
-
-function dados() {
-  var nome = 'Thaís Quirino';
-  var idade = 29;
-  function outrosDados() {
-    var endereco = 'Rio de janeiro';
-    var idade = 28;
-    return `${nome}, ${idade}, ${endereco}, ${profissao}`;
-  }
-  return outrosDados();
+function jaVisitei(paisesVisitados) {
+  return `ja visitei ${paisesVisitados} do total de ${totalPaises} paises`;
 }
+precisoVisitar(20);
 
-console.log(dados());
+
+
