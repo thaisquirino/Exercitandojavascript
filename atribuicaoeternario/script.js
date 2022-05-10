@@ -35,3 +35,31 @@ var darCredito;
 darCredito = (possuiCarro && possuiCasa);
 console.log(darCredito) ? 'Dar crédito ao cliente' : 'Negar crédito';
 console.log(darCredito)
+
+'use strict'
+function mostrarCarro() {
+  var carro = 'Fusca';
+  console.log(carro);
+}
+mostrarCarro(); // fusca no console
+console.log(carro); // Erro , carro is not defined
+
+
+
+{
+  var carro2 = 'Fusca 2';
+  var ano = 2018;
+}
+console.log(carro2);
+console.log(ano);
+
+
+var i = 50;
+for (let i = 0; i < 10; i++) {
+  console.log(`Número ${i}`);
+}
+console.log(i * 10)
+
+
+
+
