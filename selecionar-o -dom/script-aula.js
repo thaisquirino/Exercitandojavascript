@@ -34,6 +34,12 @@ const arrayGrid = Array.from(gridSectionHTML);
 
 arrayGrid.forEach(function (item) {
   console.log(item);
+});
+
+
+
+arrayGrid.forEach(function(item){
+  console.log(item);
 })
 
 
