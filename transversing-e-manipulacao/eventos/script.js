@@ -1,42 +1,19 @@
-// const h1 = document.querySelector('h1');
-// const animaisLista = document.querySelector ('.animais-descricao');
-// h1.innerHTML;
-//  console.log(animaisLista.innerHTML);
-//  console.log(h1.outerHTML)
+//Duplique  o menu  e adicione ele em copy 
+const menu = document.querySelector('.menu');
+const copy = document. querySelector('.copy');
 
-//  h1.outerHTML='<p> Novo Titulo</p>'
-//  //console.log(animaisLista.innerHTML)
+const cloneMenu = menu.cloneNode(true);
+copy.appendChild(cloneMenu);
 
-// const lista = document.querySelector('.animais-lista');
-
-// console.log(lista.previousSibling);
-
-// const animais = document .querySelector('.animais');
-// const contato =document.querySelector('.contato');
-// const titulo = document.querySelector('.titulo');
-
-// contato. insertBefore(animais, titulo);
-
-//  const mapa = document.querySelector('.mapa');
-//  contato. replaceChild(lista,titulo);
-
-
-//  const novoh1 = document.createElement('h1');
-//  novoh1.innerText ='Novo Titulo'; 
-//  novoh1.classList.add('titulo');
-
-//  console.log(novoh1);
-
-// const h1 = document.querySelector('h1');
-// const faq = document.querySelector('.faq');
-
-// const cloneH1= h1.cloneNode('azul');
-// faq.appendChild(cloneH1);
-
-const h1 = document.querySelector('h1');
+// Selecione o  DT referente ao  primeiro DT da dl de Faq
 const faq = document.querySelector('.faq');
+const primeiroDt = faq.querySelector('dt'); 
 
-const cloneH1 = h1.cloneNode(true);
+// Selecione o DD  referente  ao  primeiro  DT 
+const proximoDD = primeiroDt.nextElementSibling;
+ console.log(proximoDD);
 
-cloneH1.classList.add('azul');
-faq.appendChild(cloneH1);
+// Substitua  o  conteúdo html  de .faq pelo de .animais 
+ const animais = document.querySelector('.animais');
+
+ faq.innerHTML= animais.innerHTML;
