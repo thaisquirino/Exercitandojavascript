@@ -1,86 +1,80 @@
-// const  comida ='Pizza';
+// Utilizando o foreach na array abaixo,
+// some os valores de Taxa e os valores de Recebimento
 
-// const agua = new String('Agua');
-
-
-// console.log(agua.length);
-
-// const frase = 'A melhor comida';
-
-// console.log(frase.charAt(frase.length))
-
-
-// console.log(frase[2])
-
-
-const frase = 'A melhor  linguagem  é';
-const linguagem = 'JavaScript';
-
-
-const fraseFinal = frase + linguagem ;
-
-
-const fruta='Banana';
-const listaFrutas = 'Melancia,Banana,Laranja';
-
-
-// console.log(listaFrutas.includes(fruta));
-
-console.log(fruta.startsWith('Banana'));
+const transacoes = [
+  {
+    descricao: 'Taxa do Pão',
+    valor: 'R$ 39',
+  },
+  {
+    descricao: 'Taxa do Mercado',
+    valor: 'R$ 129',
+  },
+  {
+    descricao: 'Recebimento de Cliente',
+    valor: 'R$ 99',
+  },
+  {
+    descricao: 'Taxa do Banco',
+    valor: 'R$ 129',
+  },
+  {
+    descricao: 'Recebimento de Cliente',
+    valor: 'R$ 49',
+  },
+];
 
 
-const transacao1 = 'Depósito de cliente';
-const transacao2 = 'Depósito de fornecedor';
-const transacao3 = 'Taxa de camisas';
-
-
-console.log(transacao1.slice(5));
-
-transacao1.slice(0, 3); // Dep
-transacao2.slice(0, 3); // Dep
-transacao3.slice(0, 3); // Tax
-
-transacao1.slice(12); // cliente
-transacao1.slice(-4); // ente
-transacao1.slice(3, 6); // ósi
-
-
-console.log (fruta.indexOf('a'));
-
-console.log (fruta.lastIndexOf('na'));
-
-
-
-const listaPrecos = ['R$ 99', 'R$ 199', 'R$ 12000'];
-
-listaPrecos.forEach((preco) => {
-  console.log(preco.padStart(10, '.'));
+let taxaTotal = 0;
+let recebimentoTotal = 0;
+transacoes.forEach((item) =>{ 
+  const numeroLimpo = +item.valor.replace('R$','');
+  if(item.descricao.slice(0,4) === 'Taxa'){
+    taxaTotal += numeroLimpo;
+  } else if (item.descricao.slice(0,4) === 'Rece'){
+    recebimentoTotal += numeroLimpo;
+  }
 })
-
-listaPrecos[0].padStart(10, '.'); // .....R$ 99
-listaPrecos[0].padEnd(10, '.');   // R$ 99.....
-
-
-let listaItens = 'Camisas Bonés Calças Bermudas Vestidos Saias';
-listaItens = listaItens.replace(/[ ]+/g, ', ');
-
-const listaItens = 'Camisas Bonés Calças Bermudas Vestidos Saias';
-const arrayItens = listaItens.split(' ');
-
-const htmlText = '<div>O melhor item</div><div>A melhor lista</div>';
-const htmlArray = htmlText.split('div');
-const htmlNovo = htmlArray.join('section');
+console.log(taxaTotal)
+console.log(recebimentoTotal)
 
 
-const sexo1 = 'Feminino';
-const sexo2 = 'feminino';
-const sexo3 = 'FEMININO';
 
-(sexo1.toLowerCase() === 'feminino'); // true
-(sexo2.toLowerCase() === 'feminino'); // true
-(sexo3.toLowerCase() === 'feminino'); // true
 
-const valor = '  R$ 23.00   ' 
-valor.trim(); // 'R$ 23.00'
-valor.trimStart(); // 'R$ 23.00   '
-valor.trimEnd(); // '  R$ 23.00'
+// Retorne uma array com a lista abaixo
+const transportes = 'Carro;Avião;Trem;Ônibus;Bicicleta';
+
+const arrayTransportes = transportes.split(';');
+console.log(arrayTransportes);
+
+
+// Substitua todos os span's por a's
+const html = `<ul>
+                <li><span>Sobre</span></li>
+                <li><span>Produtos</span></li>
+                <li><span>Contato</span></li>
+              </ul>`;
+
+
+html = html.split('span').join('a').toLowerCase().toLowerCase();
+
+
+// Retorne o último caracter da frase
+const frase = 'Melhor do ano!';
+console.log(frase.slice(-2));
+
+
+// Retorne o total de taxas
+const transacoes2 = ['Taxa do Banco', '   TAXA DO PÃO', '  taxa do mercado', 'depósito Bancário', 'TARIFA especial'];
+
+let taxasTotal = 0;
+transacoes2.forEach ((item)=>{
+  item= item.toLowerCase();
+  item = item.trim();
+  item = item.slice(0,4);
+
+   if(item === 'taxa')
+   taxasTotal++
+
+}) 
+console.log(taxasTotal);
