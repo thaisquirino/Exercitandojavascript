@@ -1,119 +1,70 @@
-const comidas = ['Pizza', 'Frango', 'Carne', 'Macarrão'];
-// Remova o primeiro valor de comidas e coloque em uma variável
-// Remova o último valor de comidas e coloque em uma variável
-// Adicione 'Arroz' ao final da array
-// Adicione 'Peixe' e 'Batata' ao início da array
-
-const primeiroValor =comidas.shift();
-const ultimoValor = comidas.pop();
-
-
-comidas.push('Arroz');
-comidas.unshift('Peixe','Batata');
-
-console.log (primeiroValor)
-console.log (ultimoValor)
-console.log(comidas)
+// Selecione cada curso e retorne uma array
+// com objetos contendo o título, descricao,
+// aulas e horas de cada curso
+const cursos = document.querySelectorAll('.curso');
+const arrayCursos = Array.from(cursos);
 
 
 
-const estudantes = ['Marcio', 'Brenda', 'Joana', 'Kleber', 'Julia'];
-// Arrume os estudantes em ordem alfabética
-// // Inverta a ordem dos estudantes
-// // Verifique se Joana faz parte dos estudantes
-// // Verifique se Juliana faz parte dos estudantes
+const objetosCurso =arrayCursos.map((curso) => {
+  const titulo = curso.querySelector('h1').innerText;
+  const descricao = curso.querySelector ('p') .innerText;
+  const aulas = curso.querySelector('.aulas') .innerText;
+  const horas = curso.querySelector('.horas').innerText;
+  return{
+    titulo,
+    descricao,
+    aulas,
+    horas
 
-// estudantes.sort();
-// estudantes.reverse();
-
-
-// console.log(estudantes);
-// console.log(estudantes.includes('Joana'));
-// console.log(estudantes.includes('Juliana'));
-
-
-
+  }
+})
+console.log(objetosCurso);
 
 
+// Retorne uma lista com os
+// números maiores que 100
+const numeros = [3, 44, 333, 23, 122, 322, 33];
+
+const maioresQue100 = numeros.filter(n => n > 100);
+console.log(maioresQue100)
 
 
-// let html = `<section>
-//               <div>Sobre</div>
-//               <div>Produtos</div>
-//               <div>Contato</div>
-//             </section>`
-// // Substitua section por ul e div com li,
-// // utilizando split e join
-// html=html.split('section').join('ul').split('div').join('li');
-// console.log(html)
+// Verifique se Baixo faz parte
+// da lista de instrumentos e retorne true
+const instrumentos = ['Guitarra', 'Baixo', 'Bateria', 'Teclado']
+const possuiBaixo = instrumentos.some((item)=>{
+  return item === 'Baixo';
+}) 
+console.log(possuiBaixo);
 
 
-
-// const carros = ['Ford', 'Fiat', 'VW', 'Honda'];
-// // Remova o último carro, mas antes de remover
-// // salve a array original em outra variável
-// const carrosCopia = carros.slice();
-
-
-// carros.pop();
-
-// console.log(carros);
-// console.log(carrosCopia);
-
-
-// const frutas = ['Banana', 'Pêra', 'Uva'];
-
-// const temUva = frutas.some ((item)=>{
-// return item === 'Uva';
-// })
-// // console.log(temUva);
-
-// const numeros =[6,43,22,88,101,29];
-
-// const maiorQue3 = numeros.every(n => n > 9);
-
-// console.log(maiorQue3)
-
-
-
-// const frutas = ['Banana', 'Pêra', 'Uva', 'Maçã'];
-// const buscaUva = frutas.findIndex((fruta) => {
-//   return fruta === 'Uva'; 
-// }); // 2
-
-// const numeros = [6, 43, 22, 88, 101, 29];
-// const buscaMaior45 = numeros.find(x => x > 45); // 88
-
-
-// const frutas = ['Banana', undefined, null, '', 'Uva', 0, 'Maçã'];
-// const arrayLimpa = frutas.filter((fruta) => {
-//   return fruta; 
-// }); // ['Banana', 'Uva', 'Maçã']
-
-// const numeros = [6, 43, 22, 88, 101, 29];
-// const buscaMaior45 = numeros.filter(x => x > 45); // [88, 101]
-
-
-const aulas = [
+// Retorne o valor total das compras
+const compras = [
   {
-    nome: 'HTML 1',
-    min: 15
+    item: 'Banana',
+    preco: 'R$ 4,99'
   },
   {
-    nome: 'HTML 2',
-    min: 10
+    item: 'Ovo',
+    preco: 'R$ 2,99'
   },
   {
-    nome: 'CSS 1',
-    min: 20
+    item: 'Carne',
+    preco: 'R$ 25,49'
   },
   {
-    nome: 'JS 1',
-    min: 25
+    item: 'Refrigerante',
+    preco: 'R$ 5,35'
   },
+  {
+    item: 'Quejo',
+    preco: 'R$ 10,60'
+  }
 ]
 
-const maiores15 =aulas.filter((aula) =>{
-  return aula.min > 15;
-})
-console.log(maiores15)
+const valorTotal = compras.reduce((acummulador,item) => {
+  const precoLimpo = +item.preco.replace('R$' , '').replace(',' , '.');
+    return acummulador + precoLimpo ;
+},0)
+console.log(valorTotal);
