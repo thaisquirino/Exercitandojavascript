@@ -1,52 +1,34 @@
-// darOi.call(null,'Thaís', 28);
+// Retorne a soma total de caracteres dos
+// parágrafos acima utilizando reduce
 
-// window.marca = 'Carro';
-// window.ano =2025
+const paragrafos = document.querySelectorAll('p');
+const totalCaracteres = Array.prototype.reduce.call(paragrafos,(acumulador,item)=>{
+    return acumulador + item.innerText.length;
+},0)
 
-// function descricaoCarro() {
-//     console.log(this)
-//     console.log(this.marca + '' + this.ano);
-// }
-// descricaoCarro.call({marca:'Ecosport', ano:2023});
+console.log(totalCaracteres);
+console.log(paragrafos);
 
-//  const carros = ['Ford','Fiat','VW'];
 
-//  carros.forEach((item) => {
-//  console.log(item)
-//  })
+// Crie uma função que retorne novos elementos
+// html, com os seguintes parâmetros
+// tag, classe e conteudo.
+ function criarElemento(tag,classe , conteudo){
+    const elemento = document.createElement ('tag');
+    classe ? elemento.classList.add(classe) : null;
+    conteudo ? elemento.innerHTML= conteudo : null;   
+ 
+    return elemento ;
 
-//  function Dom (seletor) {
-//     this.element = document.querySelector(seletor);
-//  }
-// Dom.prototype.ativo = function(classe){
-//     this.element.classList.add(classe)
-// }
-
-//  const ul = new Dom('ul');
-
-//  const li ={
-//     element:document.querySelector('li')
-//  }
-
-// ul.ativo.call(li,'ativo');
-
-const frutas = ['Banana', 'Pêra', 'Uva'];
- Array.prototype.pop.call(frutas);
- frutas.pop ();
-
- const arrayLike ={
-    0:'Item 1',
-    1:'Item 2',
-    2:' Item 3',
-    length:3,
  }
+ console.log(criarElemento ('li','azul','Esse é o  conteudo'))
 
- const li = document.querySelectorAll('li');
+// Crie uma nova função utilizando a anterior como base
+// essa nova função deverá sempre criar h1 com a
+// classe titulo. Porém o parâmetro conteudo continuará dinâmico
 
- const filtro = Array.prototype.filter.call(li,(item) => {
-    return item.classList.contains('ativo');
- })
+const h1Titulo = criarElemento.bind(null,'h1','titulo');
+ const cursosJS = h1Titulo('Cursos de javascript')
+ const cursosHTML= h1Titulo('Cursos de HTML')
 
- console.log(filtro);
-
- console.log(li)
+console.log(cursosJS,cursosHTML)
