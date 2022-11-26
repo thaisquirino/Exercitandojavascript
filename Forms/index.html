@@ -20,7 +20,7 @@
                 max-width:400px;
                 margin:0 auto;
              }
-             input,textarea{
+             input,textarea {
                 width:100%;
                 box-sizing:border-box ;
                 padding:.5rem;
@@ -33,6 +33,9 @@
                 height:150px;
             }
 
+            .invalido{
+             border-color:red;
+            }
 
         </style>
       
@@ -44,24 +47,24 @@
 
         <form name ="contato" id="contato">
             <label for="nome">Nome</label>
-            <input type="text" name="nome" id="nome">
-    
+            <input type="text" name="nome" id="nome" required>
+              <span class="erro"></span>
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email">
+                <input type="email" name="email" id="email" required>
+                <span class="erro"></span>
                 <label for="mensagem"> Mensagem </label>
                 <textarea name="mensagem" id="mensagem"></textarea>
-        </form>
-        <span class="texto"></span>    
+                 </form>
 
-  <script>
-    const contato = document.querySelector('#contato');
-    const texto = document.querySelector('.texto');
-    function handleKeyUp(event){
-    console.log(event.target.value);
-    texto.innerText = event.target.value;
-    
-    }
-    contato.addEventListener('change',handleKeyUp);
+            <script>
+      
+      const contato = document.querySelector('#contato');
+      const dados = {};
+      function handleChange (event){
+        dados[event.target.name]= event.target.value;
+      
+      }    
+    contato.addEventListener('change',handleChange);
 
   </script>
 
