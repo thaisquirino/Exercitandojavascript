@@ -1,73 +1,35 @@
-// function Button (text,background){
-//     this.text = text;
-//     this.background = background;
-
-// }
-
-//  Button.prototype.element = function() {
-//    const buttonElement = document.createElement ('button');
-//    buttonElement.innerText = this.text;
-//    buttonElement.innerText = this.text;
-//    buttonElement.style.background = this.background;
-//    return buttonElement;
-//  }
-
- class Button{
-    constructor(text, background,color) {
-        this.text = text;
-        this.background =background;
-        this.color = color;
-
-    }
-    element(){
-        const buttonElement =document.createElement('button');
-        buttonElement.innerText = this.text;
-        buttonElement.style.color = this.color;
-        return buttonElement;
-    }
-    appendTo(target) {
-        const targetElement = document.querySelector(target);
-        targetElement.appendChild(this.element());
-        return targetElement;
-     
-    }
-    static blueButton(){
-        return new Button('text','blue', 'white');
+const button ={
+    get tamanho(){
+        return this._numero;
+    },
+    set tamanho (numero){
+       this._numero =numero * 200; 
     }
 }
+  const frutas = {
+    lista:[],
+    set nova(fruta) {
+        this.lista.push(fruta);
+    }
+  }
 
-const  botaoAzul = Button.blueButton('Comprar');
+  frutas.nova = 'Banana';
+  frutas.nova = 'Morango';
 
-//         return new Button('text','blue', 'white');
-//     }
-//  }
-
-//  const  botaoAzul = Button.blueButton('Comprar');
-
-//   console.log(blueButton.appendTo('body'));
-
-// class  Button {
-//      constructor(options) {
-//         this.options = options;
-//      }
-//      static createButton(text,background){
-//         const buttonElement =document.createElement('button');
-//         buttonElement.innerText = text; 
-//         buttonElement.style.background = background; 
-//         return buttonElement;
-//      }
-// }
- 
-// const optionsBlue = {
-//     backgroundColor:'blue',
-//     text:'Comprar',
-//     color:'White',
-// }
-
-
-// const blueButton = new Button(optionsBlue);
-
-// const blueButtonStatic = Button.createElement ('Clique', 'blue');
-
-// console.log(blueButtonStatic);
-  
+class Button {
+    constructor(text,color){
+        this.text = text;
+        this.color = color;
+    }
+    get element () {
+        const type =this._elementType || 'button';
+        const buttonElement =document.createElement (type);
+        buttonElement.innerText =this.text;
+        buttonElement.style.color =this.color;
+        return buttonElement;
+    }
+    set element(type){
+        this._elementType=type;
+    }
+}
+const blueButton = new Button('Comprar','blue')
