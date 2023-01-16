@@ -31,12 +31,18 @@
         return targetElement;
      
     }
-    static blueButton() {
+    static blueButton(){
         return new Button('text','blue', 'white');
     }
- }
+}
 
- const  botaoAzul = Button.blueButton('Comprar');
+const  botaoAzul = Button.blueButton('Comprar');
+
+//         return new Button('text','blue', 'white');
+//     }
+//  }
+
+//  const  botaoAzul = Button.blueButton('Comprar');
 
 //   console.log(blueButton.appendTo('body'));
 
