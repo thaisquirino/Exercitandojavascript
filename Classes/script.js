@@ -1,35 +1,23 @@
-const button ={
-    get tamanho(){
-        return this._numero;
-    },
-    set tamanho (numero){
-       this._numero =numero * 200; 
+class Veiculo {
+    constructor (rodas, combustivel){
+    this.rodas = rodas;    
+    this. combustivel=  combustivel; 
+    }
+    acelerar(){
+        console.log('Acelerou');
     }
 }
-  const frutas = {
-    lista:[],
-    set nova(fruta) {
-        this.lista.push(fruta);
+class Moto extends Veiculo{
+    constructor(rodas, combustivel,capacete){
+        super(rodas, combustivel)
+        this.capacete = capacete;
     }
-  }
-
-  frutas.nova = 'Banana';
-  frutas.nova = 'Morango';
-
-class Button {
-    constructor(text,color){
-        this.text = text;
-        this.color = color;
+    acelerar (){
+       super.acelerar();
+       console.log('Acelerar rápido') 
     }
-    get element () {
-        const type =this._elementType || 'button';
-        const buttonElement =document.createElement (type);
-        buttonElement.innerText =this.text;
-        buttonElement.style.color =this.color;
-        return buttonElement;
-    }
-    set element(type){
-        this._elementType=type;
+    empinar (){
+      console.log('Moto empinou com' + this.rodas + 'rodas');  
     }
 }
-const blueButton = new Button('Comprar','blue')
+const honda = new Moto(2, true);
